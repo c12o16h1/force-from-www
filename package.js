@@ -1,6 +1,6 @@
 Package.describe({
   name: 'c12o16h1:force-from-www',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'force-from-www)',
   // URL to the Git repository containing the source code for this package.

@@ -6,11 +6,13 @@ if(Meteor.isServer){
 
             // Remove www. from host
             var newHost = req.headers.host.slice(4);
+            //Protocol detection (AWS ELB case)
+            const protocol = (req.headers['x-forwarded-proto'] && req.headers['x-forwarded-proto'] === 'http') ? 'http' : 'https';
 
             // Redirect to non-www URL
             res.writeHead(301, {
                 // Hard-coded protocol because req.protocol not available
-                Location: 'http://' + newHost + req.originalUrl
+                Location: protocol + '://' + newHost + req.originalUrl
             });
             res.end();
 
